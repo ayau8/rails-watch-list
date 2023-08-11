@@ -1,0 +1,33 @@
+<div class="landing w-100" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('landing6.jpg') %>);">
+  <%= link_to 'Create a New Movie', new_list_path, class: 'btn btn-primary' %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <div class="col-md-4">
+        <div class="card mt-5">
+          <%= image_tag "https://www.syfy.com/sites/syfy/files/styles/hero-image--large--computer--alt-1_5x/public/2019/05/john-wick-2017-image-3840x2400.jpg?h=d9c273ae", class: "card-img-top"%>
+          <div class="card-body">
+            <h1 class="card-title"><%= @list.name %></h1>
+            <hr class="hr mt-4">
+            <p>Introducing an cinematic experience like no other!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center my-5">
+  <%= link_to "Home", lists_path, class: "btn btn-primary mx-3"%>
+  <%= link_to "Bookmark", new_list_bookmark_path(@list), class: "btn btn-primary mx-3" %>
+  <%= link_to "Delete", list_path(@list), class: "btn btn-primary mx-3", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
+</div>
+<div class="container mt-5">
+  <p class="display-4">Bookmark List</p>
+  <% @list.bookmarks.each do |bookmark| %>
+    <p><%= bookmark.movie.title %></p>
+    <p><%= bookmark.movie.rating %></p>
+  <% end %>
+  <br>
+</div>
+</div>
