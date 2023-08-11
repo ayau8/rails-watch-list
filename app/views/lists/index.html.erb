@@ -7,7 +7,7 @@
     <% @lists.each do |list| %>
       <div class="col-md-4">
         <div class="card mt-5">
-          <%= image_tag "https://www.syfy.com/sites/syfy/files/styles/hero-image--large--computer--alt-1_5x/public/2019/05/john-wick-2017-image-3840x2400.jpg?h=d9c273ae", class: "card-img-top"%>
+          <%= cl_image_tag list.photo.key, crop: :fill %>
           <div class="card-body">
             <h3 class="card-title"><%= link_to list.name, list_path(list), class: "text-decoration-none text-secondary" %></h3>
           </div>
